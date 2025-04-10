@@ -9,8 +9,12 @@ from engine.midi_writer import save_midi
 from engine.renderer import render_to_wav
 
 SF2_PATH = "/usr/share/sounds/sf2/FluidR3_GM.sf2"
-OUTPUT_WAV = "output.wav"
-OUTPUT_MIDI = "output.mid"
+
+OUTPUT_DIR = "output"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+OUTPUT_WAV = os.path.join(OUTPUT_DIR, "track.wav")
+OUTPUT_MIDI = os.path.join(OUTPUT_DIR, "track.mid")
 
 class JazzGUI:
   def __init__(self, root):
