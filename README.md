@@ -141,8 +141,6 @@ jazz-backing-track-generator/
 
 ![GUI Screenshot](docs/gui_screenshot.png)
 
-> *(Add this screenshot to `docs/gui_screenshot.png` and commit it!)*
-
 ---
 
 ## 📄 License
