@@ -1,3 +1,6 @@
-pygame==2.5.2
 mido==1.2.10
+numpy==2.2.4
+pretty-midi==0.2.10
+pygame==2.5.2
 python-rtmidi==1.5.8
+six==1.17.0
