@@ -4,7 +4,7 @@ from instruments.piano import generate_piano_track
 from instruments.drums import generate_drum_track
 from instruments.metronome_track import add_metronome_track
 
-def generate_midi(chords, bpm, beats_per_bar):
+def generate_midi(chords, bpm, beats_per_bar, include_metronome=True):
   midi = PrettyMIDI()
 
   # Add tracks
@@ -16,7 +16,8 @@ def generate_midi(chords, bpm, beats_per_bar):
 
   drums = generate_drum_track(bpm, beats_per_bar, len(chords))
   midi.instruments.append(drums)
-
-  add_metronome_track(midi, bpm, beats_per_bar, len(chords))
+  
+  if include_metronome:
+    add_metronome_track(midi, bpm, beats_per_bar, len(chords))
 
   return midi
