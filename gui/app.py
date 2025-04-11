@@ -67,6 +67,11 @@ class JazzGUI:
     self.metronome_check = tk.Checkbutton(root, text="🎵 Include Metronome", variable=self.metronome_var)
     self.metronome_check.grid(row=9, column=0, columnspan=2)
 
+    # Style selector
+    tk.Label(root, text="Style:").grid(row=10, column=0, sticky="w")
+    self.style_var = tk.StringVar(value="swing")
+    self.style_menu = tk.OptionMenu(root, self.style_var, "swing", "straight")
+    self.style_menu.grid(row=10, column=1, sticky="ew")
 
     # Initialize pygame mixer
     pygame.mixer.init()
@@ -84,7 +89,9 @@ class JazzGUI:
 
       chords = parse_progression(progression)
       include_metronome = self.metronome_var.get()
-      midi = generate_midi(chords, bpm, beats_per_bar, include_metronome=include_metronome)
+      style = self.style_var.get()
+
+      midi = generate_midi(chords, bpm, beats_per_bar, include_metronome=include_metronome, style=style)
       save_midi(midi, OUTPUT_MIDI)
       render_to_wav(OUTPUT_MIDI, SF2_PATH, OUTPUT_WAV)
 
